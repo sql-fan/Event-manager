@@ -1,4 +1,4 @@
-<div class="mx-auto flex flex-col items-center justify-center bg-gray-100 w-full max-w-xs mt-50 p-5 rounded">
+<div class="mx-auto flex text-black flex-col items-center justify-center bg-gray-100 w-full max-w-xs mt-50 p-5 rounded">
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="field">
       <%= f.label :email %><br />
@@ -14,9 +14,8 @@
         <%= f.label :remember_me %>
       </div>
     <% end %>
-    <div class="actions">
+    <div class="actions mt-4">
       <%= f.submit "Log in", class:"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded " %>
     </div>
   <% end %>
-  <%= render "devise/shared/links" %>
 </div>

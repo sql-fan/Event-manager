@@ -17,9 +17,12 @@
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <body class="bg-slate-900 h-screen w-screen flex flex-column">
+  <body class="bg-slate-900 h-screen w-screen flex flex-column text-white">
     <%= render "layouts/navbar" %>
     <main class="w-full">
+      <% if user_signed_in? %>
+        <p><%= current_user.email %></p>
+      <% end %>
       <%= render "layouts/alerts" %>
       <%= yield %>
     </main>
