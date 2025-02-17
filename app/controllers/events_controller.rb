@@ -13,6 +13,7 @@ class EventsController < ApplicationController
 
   def create
     @event = Event.new(event_params)
+    @event.build_creator(id: current_user.id)
     if @event.save
       redirect_to @event
     else
@@ -23,5 +24,9 @@ class EventsController < ApplicationController
   private
     def set_event
       @event = Event.find(params[:id])
+    end
+
+    def event_params
+      params.expect(event: [ :name, :date ])
     end
 end

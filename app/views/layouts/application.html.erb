@@ -19,10 +19,12 @@
   </head>
   <body class="bg-slate-900 h-screen w-screen flex flex-column text-white">
     <%= render "layouts/navbar" %>
-    <main class="w-full">
-      <% if user_signed_in? %>
-        <p><%= current_user.email %></p>
-      <% end %>
+    <main class="w-full flex flex-col items-center pt-4">
+      <div class="flex w-full items-end justify-end">
+        <% if user_signed_in? %>
+          <p class="border-2 border-white px-2 rounded-lg bg-indigo-600"><%= current_user.email %></p>
+        <% end %>
+      </div>
       <%= render "layouts/alerts" %>
       <%= yield %>
     </main>
