@@ -13,10 +13,10 @@
         <br>
         <div>
           <% if user_signed_in? %>
-            <%= link_to "Join Event", new_event_user_path(event_id: event.id), class:"px-4 py-2 bg-green-500  hover:scale-105 text-white font-bold text-lg rounded-lg" %>
-            <%= link_to "Show Event", event, class:"px-4 py-2 bg-cyan-500 hover:scale-105 text-white font-bold text-lg rounded-lg" %>
+            <%= link_to "Join Event", new_event_user_path(event_id: event.id), class:"overflow-visible px-4 py-2 bg-green-500 hover:scale-105 text-white font-bold text-lg rounded-lg" %>
+            <%= link_to "Show Event", event, class:"overflow-visible px-4 py-2 bg-white hover:scale-105 text-green-500 font-bold text-lg rounded-lg" %>
           <% else %>
-            <%= link_to "Log in to join", event, class:"px-4 py-2 bg-green-500  hover:scale-105 text-white font-bold text-lg rounded-lg" %>
+            <%= link_to "Log in to join", event, class:"overflow-visible px-4 py-2 bg-green-500 hover:scale-105 text-white font-bold text-lg rounded-lg" %>
           <% end %>
         </div>
         <br>

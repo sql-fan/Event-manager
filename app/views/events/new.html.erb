@@ -1,21 +1,17 @@
 <h1 class="text-6xl font-600 text-center m-10">Create Event</h1>
 <% if @event.errors.any? %>
-  <div class="md: absolute top-50 left-3/4 border-2 border-white p-4 rounded-lg">
-    <% @event.errors.each do |event| %>
-      <p><%= event.full_message %></p>
-    <% end %>
+  <% @event.errors.each do |event| %>
+    <p class="text-5xl"><%= event.full_message %></p>
   <% end %>
-</div>
-<div class="mt-10 rounded-lg p-4 border-2 border-white bg-gray-200 text-black w-100">
-  <%= form_with model: @event do |form| %>
-    <div class="py-4">
-      <%= form.label :name%>
-      <%= form.text_field :name, class: "bg-gray-50 block w-full" %>
-    </div>
-    <div class="py-4">
-      <%= form.label :date%>
-      <%= form.date_field :date, class: "bg-gray-50 block w-full" %>
-    </div>
-    <%= form.submit "Create event", class:"px-4 py-2 rounded-lg bg-blue-500 hover:bg-blue-700 text-white text-bold cursor-pointer" %>
-  <% end %>
-</div>
+<% end %>
+<%= form_with model: @event, class:"flex text-center flex-col mt-2 rounded-lg items-center justify-center" do |form| %>
+  <div class="py-4 w-80">
+    <%= form.label :name%>
+    <%= form.text_field :name, class: "bg-gray-50 block w-full" %>
+  </div>
+  <div class="py-4 w-80">
+    <%= form.label :date%>
+    <%= form.date_field :date, class: "bg-gray-50 block w-full" %>
+  </div>
+  <%= form.submit "Create event", class:"block px-4 py-2 rounded-lg bg-blue-500 hover:scale-105 text-white cursor-pointer" %>
+<% end %>

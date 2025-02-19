@@ -1,10 +1,10 @@
-<nav class="bg-amber-600 overflow-hidden p-3 sticky w-full top-0">
+<nav class="bg-linear-to-r from-indigo-500 via-sky-500 to-emerald-500 overflow-hidden p-3 sticky w-full top-0">
   <ul class="flex items-center justify-between">
     <% if user_signed_in? %>
       <div class="flex gap-2">
-        <li class="text-white bg-blue-500 px-4 py-2 rounded-lg hover:scale-105 hover:bg-blue-700 cursor-pointer"><%= link_to "All events", root_path %></li>
-        <li class="text-white bg-blue-500 px-4 py-2 rounded-lg hover:scale-105 hover:bg-blue-700 cursor-pointer"><%= link_to "Create event", new_event_path %></li>
-        <li class="text-white bg-blue-500 px-4 py-2 rounded-lg hover:scale-105 hover:bg-blue-700 cursor-pointer"><%= link_to "My events", user_path(current_user) %></li>
+        <li class="bg-sky-300 px-4 py-2 rounded-lg hover:scale-105 cursor-pointer"><%= link_to "All events", root_path %></li>
+        <li class="bg-sky-300 px-4 py-2 rounded-lg hover:scale-105 cursor-pointer"><%= link_to "Create event", new_event_path %></li>
+        <li class="bg-sky-300 px-4 py-2 rounded-lg hover:scale-105 cursor-pointer"><%= link_to "My events", user_path(current_user) %></li>
       </div>
     <% end %>
     <div class="flex gap-2">
@@ -12,7 +12,7 @@
         <li class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:scale-105"><%= link_to "Log in", new_user_session_path %></li>
         <li class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:scale-105"><%= link_to "Sign up", new_user_registration_path %></li>
       <% else %>
-        <%= button_to "Sign Out", destroy_user_session_path, method: :delete, data: {turbo: "false"}, class:"px-4 py-2 bg-red-500 hover:bg-red-700 text-white text-bold rounded-lg hover:scale-105 cursor-pointer" %>
+        <%= button_to "Sign Out", destroy_user_session_path, method: :delete, data: {turbo: "false"}, class:"px-4 py-2 bg-red-500 font-bold text-white text-bold rounded-lg hover:scale-105 cursor-pointer" %>
       <% end %>
     </div>
   </ul>

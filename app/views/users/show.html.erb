@@ -3,13 +3,13 @@
   <% @events.each do |event| %>
     <div class="border-2 rounded-lg text-center p-4 bg-indigo-400">
       <h1 class="text-3xl mb-5"><%= event.name.capitalize%></h1>
-      <p><span class="p-2 rounded-lg bg-red-500"><%= event.date %></span></p>
+      <p>Event will be in <%= distance_of_time_in_words(Time.now, event.date) %></p>
       <br>
-      <p><span class="p-2 rounded-lg bg-red-500">Placeholder</span> </p>
+      <p>Hosted by: <%= event.creator.email %> </p>
     </div>
   <% end %>
 </div>
 <h1 class="text-center pt-5 text-5xl">Attended Events</h1>
 <div class="grid grid-cols-3 gap-4 px-10 pt-10">
-  <p>You haven't attended any events yet</p>
+  <p>You haven't attended any events yet  </p>
 </div>
