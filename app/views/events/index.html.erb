@@ -12,7 +12,9 @@
         </div>
         <div>
           <% if user_signed_in? %>
-            <%= link_to "Join Event", new_event_user_path, class:"px-4 py-2 bg-green-500 hover:bg-green-700 hover:scale-105 text-white font-bold text-lg rounded-lg" %>
+            <%= link_to "Join Event!", new_event_user_path, class:"px-4 py-2 bg-green-500 hover:bg-green-700 hover:scale-105 text-white font-bold text-lg rounded-lg" %>
+          <% else %>
+            <%= link_to "Log in to join!", new_user_session_path, class:"px-4 py-2 bg-green-500 hover:bg-green-700 hover:scale-105 text-white font-bold text-lg rounded-lg" %>
           <% end %>
         </div>
         <br>
