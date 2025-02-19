@@ -1,21 +1,22 @@
 <div class="">
-  <h1 class="text-5xl py-5 text-bold text-center mb-10">All events</h1>
-  <div class="event-grid grid grid-cols-1 gap-20 ">
+  <h1 class="text-6xl font-600 text-center m-10">All events</h1>
+  <div class="grid grid-cols-2 gap-3 px-20">
     <% @events.each do |event| %>
-      <div class="flex flex-col items-center justify-between event-card bg-blue-50 border-2 border-white rounded-lg p-2 w-[800px] h-[300px]">
+      <div class="flex text-white flex-col items-center justify-between event-card bg-gradient-to-br from-indigo-500 via-sky-500 to-emerald-500 hover:to-red-500 border-2 border-white rounded-lg p-4">
         <div class="flex items-center justify-between w-full ">
-          <h2 class="text-4xl font-bold"><%= event.name.capitalize %></h2>
+          <h2 class="text-2xl font-bold"><%= event.name.capitalize %></h2>
           <p class="pl-5"><%= event.creator.email %></p>
           <% unless event.date.nil? %>
             <p class="pl-5"><%= distance_of_time_in_words(Time.now, event.date)%> from now </p>
           <% end %>
         </div>
+        <br>
         <div>
           <% if user_signed_in? %>
-            <%= link_to "Join Event", new_event_user_path(event_id: event.id), class:"px-4 py-2 bg-green-500 hover:bg-green-700 hover:scale-105 text-white font-bold text-lg rounded-lg" %>
-            <%= link_to "Show Event", event, class:"px-4 py-2 bg-blue-500 hover:bg-blue-700 hover:scale-105 text-white font-bold text-lg rounded-lg" %>
+            <%= link_to "Join Event", new_event_user_path(event_id: event.id), class:"px-4 py-2 bg-green-500  hover:scale-105 text-white font-bold text-lg rounded-lg" %>
+            <%= link_to "Show Event", event, class:"px-4 py-2 bg-cyan-500 hover:scale-105 text-white font-bold text-lg rounded-lg" %>
           <% else %>
-            <%= link_to "Log in to join", event, class:"px-4 py-2 bg-green-500 hover:bg-green-700 hover:scale-105 text-white font-bold text-lg rounded-lg" %>
+            <%= link_to "Log in to join", event, class:"px-4 py-2 bg-green-500  hover:scale-105 text-white font-bold text-lg rounded-lg" %>
           <% end %>
         </div>
         <br>
