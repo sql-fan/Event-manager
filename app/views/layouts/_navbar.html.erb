@@ -2,9 +2,9 @@
   <ul class="flex flex-col items-center flex gap-100">
     <% if user_signed_in? %>
       <div class="flex flex-col gap-4">
-        <li class="text-white bg-blue-700 px-4 py-2 rounded-lg hover:scale-105"><%= link_to "All events", root_path %></li>
-        <li class="text-white bg-blue-700 px-4 py-2 rounded-lg hover:scale-105"><%= link_to "Create event", new_event_path %></li>
-        <li class="text-white bg-blue-700 px-4 py-2 rounded-lg hover:scale-105"><%= link_to "My events", user_path(current_user) %></li>
+        <li class="text-white bg-blue-500 px-4 py-2 rounded-lg hover:scale-105 hover:bg-blue-700 cursor-pointer"><%= link_to "All events", root_path %></li>
+        <li class="text-white bg-blue-500 px-4 py-2 rounded-lg hover:scale-105 hover:bg-blue-700 cursor-pointer"><%= link_to "Create event", new_event_path %></li>
+        <li class="text-white bg-blue-500 px-4 py-2 rounded-lg hover:scale-105 hover:bg-blue-700 cursor-pointer"><%= link_to "My events", user_path(current_user) %></li>
       </div>
     <% end %>
     <div class="flex gap-2">
@@ -12,7 +12,7 @@
         <li class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:scale-105"><%= link_to "Log in", new_user_session_path %></li>
         <li class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:scale-105"><%= link_to "Sign up", new_user_registration_path %></li>
       <% else %>
-        <%= button_to "Sign Out", destroy_user_session_path, method: :delete, data: {turbo: "false"}, class:"px-4 py-2 bg-red-500 text-white text-bold rounded-lg hover:scale-105 cursor-pointer" %>
+        <%= button_to "Sign Out", destroy_user_session_path, method: :delete, data: {turbo: "false"}, class:"px-4 py-2 bg-red-500 hover:bg-red-700 text-white text-bold rounded-lg hover:scale-105 cursor-pointer" %>
       <% end %>
     </div>
   </ul>

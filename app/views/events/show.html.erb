@@ -1,3 +1,12 @@
-<h1 class="text-3xl mb-5"><%= @event.name %></h1>
-<p>Event date:<%= @event.date %></p>
-<p>Creator email:<%= @event.creator.email %></p>
+<div class="p-4 border-2 border-white bg-blue-500 text-white flex flex-col items-center justify-center rounded-lg">
+  <h1 class="text-3xl mb-5 bg-blue-800 px-4 py-2 rounded-lg"><%= @event.name %></h1>
+  <p>Event date:<%= @event.date %></p>
+  <p>Creator email:<%= @event.creator.email %></p>
+  <br>
+  <p class="text-2xl">Attendees:</p>
+  <ul>
+    <% @attendees.each do |attendee| %>
+      <li><%= attendee.email %></li>
+    <% end %>
+  </ul>
+</div>

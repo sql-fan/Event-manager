@@ -1,10 +1,11 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ show  ]
+  before_action :set_event, only: %i[ show new create ]
   def index
-    @events = Event.all.reverse_order
+    @events = Event.order(:date)
   end
 
   def show
+    @attendees = @event.attendees.all
   end
 
   def new

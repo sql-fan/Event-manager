@@ -1,0 +1,6 @@
+<h2>Confirm Joining Event</h2>
+<p>Are you sure you want to join <strong><%= @event.name %></strong>?</p>
+<div class="flex gap-4 mt-4">
+  <%= button_to "Yes, Join Event", event_users_path(event_id: @event.id), method: :post, class: "bg-green-500 hover:scale-105 px-5 py-2 text-white cursor-pointer rounded-lg" %>
+  <%= link_to "No, Go Back", event_path(@event), class: "bg-red-500 hover:scale-105 px-5 py-2 text-white cursor-pointer rounded-lg" %>
+</div>

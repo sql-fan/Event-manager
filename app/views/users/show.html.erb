@@ -1,5 +1,6 @@
-<h1 class="text-white text-center pt-5 text-5xl">Your events</h1>
-<div class="grid grid-cols-4 gap-4 px-10 pt-10">
+<div  class="border-2">
+<h1 class="text-center pt-5 text-5xl">Created events</h1>
+<div class="grid grid-cols-3 gap-4 px-10 pt-10">
   <% @events.each do |event| %>
     <div class="border-2 rounded-lg text-center p-4 bg-indigo-400">
       <h1 class="text-3xl mb-5"><%= event.name.capitalize%></h1>
@@ -8,4 +9,16 @@
       <p><span class="p-2 rounded-lg bg-red-500">Placeholder</span> </p>
     </div>
   <% end %>
+</div>
+<h1 class="text-center pt-5 text-5xl">Attendances</h1>
+<div class="grid grid-cols-3 gap-4 px-10 pt-10">
+  <% @events.each do |event| %>
+    <div class="border-2 rounded-lg text-center p-4 bg-indigo-400">
+      <h1 class="text-3xl mb-5"><%= event.name.capitalize%></h1>
+      <p><span class="p-2 rounded-lg bg-red-500"><%= event.date %></span></p>
+      <br>
+      <p><span class="p-2 rounded-lg bg-red-500">Placeholder</span> </p>
+    </div>
+  <% end %>
+</div>
 </div>
