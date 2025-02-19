@@ -1,3 +1,22 @@
 <div class="">
-  <h1 class="text-5xl pt-5 text-bold text-center">All events</h1>
+  <h1 class="text-5xl py-5 text-bold text-center mb-10">All events</h1>
+  <div class="event-grid grid grid-cols-1 gap-20 ">
+    <% @events.each do |event| %>
+      <div class="flex flex-col items-center justify-between event-card bg-blue-50 border-2 border-white rounded-lg p-2 w-[800px] h-[300px]">
+        <div class="flex items-center justify-between w-full ">
+          <h2 class="text-4xl font-bold"><%= event.name.capitalize %></h2>
+          <p class="pl-5"><%= event.creator.email %></p>
+          <% unless event.date.nil? %>
+            <p class="pl-5"><%= distance_of_time_in_words(Time.now, event.date)%> from now </p>
+          <% end %>
+        </div>
+        <div>
+          <% if user_signed_in? %>
+            <%= link_to "Join Event", new_event_user_path, class:"px-4 py-2 bg-green-500 hover:bg-green-700 hover:scale-105 text-white font-bold text-lg rounded-lg" %>
+          <% end %>
+        </div>
+        <br>
+      </div>
+    <% end %>
+  </div>
 </div>
