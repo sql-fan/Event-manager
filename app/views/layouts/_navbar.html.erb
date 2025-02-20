@@ -4,7 +4,9 @@
       <div class="flex gap-2">
         <li class="bg-green-600 px-4 py-2 rounded-lg hover:scale-105 cursor-pointer text-white"><%= link_to "All events", root_path %></li>
         <li class="bg-green-600 px-4 py-2 rounded-lg hover:scale-105 cursor-pointer text-white"><%= link_to "Create event", new_event_path %></li>
-        <li class="bg-green-600 px-4 py-2 rounded-lg hover:scale-105 cursor-pointer text-white"><%= link_to "My events", user_path(current_user) %></li>
+      </div>
+      <div>
+        <p class="hidden md:block rounded-lg text-white cursor-pointer bg-indigo-900 p-2">You are logged in as: <span class="text-white font-bold hover:scale-105"><%= current_user.email %></span></p>
       </div>
     <% end %>
     <div class="flex gap-2">
@@ -12,6 +14,7 @@
         <li class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:scale-105"><%= link_to "Log in", new_user_session_path %></li>
         <li class="bg-gray-500 text-white px-4 py-2 rounded-lg hover:scale-105"><%= link_to "Sign up", new_user_registration_path %></li>
       <% else %>
+        <li class="bg-blue-600 px-4 py-2 rounded-lg hover:scale-105 cursor-pointer text-white"><%= link_to "My profile", user_path(current_user) %></li>
         <%= button_to "Sign Out", destroy_user_session_path, method: :delete, data: {turbo: "false"}, class:"px-4 py-2 bg-red-500 font-bold text-white text-bold rounded-lg hover:scale-105 cursor-pointer" %>
       <% end %>
     </div>

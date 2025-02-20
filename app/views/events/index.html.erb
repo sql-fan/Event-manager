@@ -1,6 +1,6 @@
-<div class="">
-  <h1 class="text-6xl text-white font-600 text-center m-10">All events</h1>
-  <div class="grid grid-cols-2 gap-3 px-20">
+  <% if @events.any? %>
+  <h1 class="text-6xl text-white font-600 text-center">All events</h1>
+  <div class="grid md:grid-cols-2 gap-3 px-20">
     <% @events.each do |event| %>
       <div class="flex text-white flex-col items-center justify-between event-card bg-gradient-to-br from-indigo-500 via-sky-500 to-emerald-500 hover:to-red-500 border-2 border-white rounded-lg p-4">
         <div class="flex items-center justify-between w-full ">
@@ -13,8 +13,11 @@
         <br>
         <div>
           <% if user_signed_in? %>
-            <%= link_to "Join Event", new_event_user_path(event_id: event.id), class:"overflow-visible px-4 py-2 bg-green-500 hover:scale-105 text-white font-bold text-lg rounded-lg" %>
-            <%= link_to "Show Event", event, class:"overflow-visible px-4 py-2 bg-white hover:scale-105 text-green-500 font-bold text-lg rounded-lg" %>
+            <div class="flex gap-4">
+              <%= link_to "Join Event", new_event_user_path(event_id: event.id), class:"overflow-visible px-4 py-2 bg-green-500 hover:scale-105 text-white font-bold text-lg rounded-lg" %>
+              <%= link_to "Show Event", event, class:"overflow-visible px-4 py-2 bg-white hover:scale-105 text-green-500 font-bold text-lg rounded-lg" %>
+              <%= button_to "Delete Event", event, class:"overflow-visible px-4 py-2 bg-red-700 hover:scale-105 text-white font-bold text-lg rounded-lg cursor-pointer", method: :delete, data: {turbo_confirm: "Do you want to delete #{event.name}?"} %>
+            </div>
           <% else %>
             <%= link_to "Log in to join", event, class:"overflow-visible px-4 py-2 bg-green-500 hover:scale-105 text-white font-bold text-lg rounded-lg" %>
           <% end %>
@@ -23,4 +26,6 @@
       </div>
     <% end %>
   </div>
-</div>
+<% else %>
+  <h1 class="text-6xl text-white font-600 text-center">No events :(</h1>
+<% end %>

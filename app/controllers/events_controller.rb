@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ show ]
+  before_action :set_event, only: %i[ show destroy ]
   def index
     @events = Event.all
   end
@@ -20,6 +20,11 @@ class EventsController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @event.destroy
+    redirect_to root_path
   end
 
   private

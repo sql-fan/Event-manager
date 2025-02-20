@@ -1,12 +1,16 @@
 <div class="p-4 border-2 border-white bg-blue-500 text-white flex flex-col items-center justify-center rounded-lg">
-  <h1 class="text-3xl mb-5 bg-blue-800 px-4 py-2 rounded-lg"><%= @event.name %></h1>
-  <p>Event date:<%= @event.date %></p>
-  <p>Creator email:<%= @event.creator.email %></p>
+  <h1 class="text-3xl font-bold text-rose-500 mb-5 bg-blue-800 px-4 py-2 rounded-lg"><%= @event.name %></h1>
+  <p>At :<%= @event.date %></p>
+  <p>Created by: <%= @event.creator.email %></p>
   <br>
-  <p class="text-2xl">Attendees:</p>
-  <ul>
-    <% @attendees.each do |attendee| %>
-      <li><%= attendee.email %></li>
-    <% end %>
-  </ul>
+  <% if @attendees.any? %>
+    <p class="text-2xl">Attendees (<%= @attendees.count%>):</p>
+    <ul>
+      <% @attendees.each do |attendee| %>
+        <li><%= attendee.email %></li>
+      <% end %>
+    </ul>
+  <% else%>
+    <%= link_to "Be first to join this event!", new_event_user_path(event_id: @event.id), class:"px-4 py-2 rounded-lg bg-green-700 text-green-300 hover:bg-green-300 hover:text-green-700 cursor-pointer" %>
+  <% end %>
 </div>
