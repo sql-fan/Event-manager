@@ -1,7 +1,7 @@
-<h1 class="text-center pt-5 text-5xl">Created events</h1>
-<div class="grid grid-cols-3 gap-4 px-10 pt-10">
+<h1 class="text-center pt-5 text-5xl">Created</h1>
+<div class="grid gap-4 px-10 pt-10">
   <% @events.each do |event| %>
-    <div class="border-2 rounded-lg text-center p-4 bg-indigo-400">
+    <div class="border-2 border-white border-2 rounded-lg text-center p-4 bg-indigo-400">
       <h1 class="text-3xl mb-5"><%= event.name.capitalize%></h1>
       <p>Event will be in <%= distance_of_time_in_words(Time.now, event.date) %></p>
       <br>
@@ -9,7 +9,14 @@
     </div>
   <% end %>
 </div>
-<h1 class="text-center pt-5 text-5xl">Attended Events</h1>
-<div class="grid grid-cols-3 gap-4 px-10 pt-10">
-  <p>You haven't attended any events yet  </p>
+<h1 class="text-center pt-5 text-5xl">Joined</h1>
+<div class="grid gap-4 px-10 pt-10">
+  <% @events_joined.each do |event| %>
+    <div class="border-2 border-white border-2 rounded-lg text-center p-4 bg-indigo-400">
+      <h1 class="text-3xl mb-5"><%= event.name.capitalize%></h1>
+      <p>Event will be in <%= distance_of_time_in_words(Time.now, event.date) unless event.date.nil? %></p>
+      <br>
+      <p>Hosted by: <%= event.creator.email %> </p>
+    </div>
+  <% end %>
 </div>

@@ -1,17 +1,20 @@
 <h1 class="text-6xl font-600 text-center m-10">Create Event</h1>
 <% if @event.errors.any? %>
+  <div class="flex gap-3">
   <% @event.errors.each do |event| %>
-    <p class="text-5xl"><%= event.full_message %></p>
+    <p class="bg-red-300 p-2 rounded-lg mb-3"><%= event.full_message %></p>
   <% end %>
+  </div>
 <% end %>
+
 <%= form_with model: @event, class:"flex text-center flex-col mt-2 rounded-lg items-center justify-center" do |form| %>
   <div class="py-4 w-80">
     <%= form.label :name%>
-    <%= form.text_field :name, class: "bg-gray-50 block w-full" %>
+    <%= form.text_field :name, class: "bg-gray-50 block w-full p-2 rounded-lg focus:outline-4 focus:outline-blue-500" %>
   </div>
   <div class="py-4 w-80">
     <%= form.label :date%>
-    <%= form.date_field :date, class: "bg-gray-50 block w-full" %>
+    <%= form.date_field :date, class: "bg-gray-50 block w-full p-2 rounded-lg focus:outline-4 focus:outline-blue-500" %>
   </div>
   <%= form.submit "Create event", class:"block px-4 py-2 rounded-lg bg-blue-500 hover:scale-105 text-white cursor-pointer" %>
 <% end %>

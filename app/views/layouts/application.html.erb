@@ -22,7 +22,7 @@
     <main class="flex flex-col items-center justify-center pt-4">
       <div class="fixed top-20 right-0">
         <% if user_signed_in? %>
-          <span class="px-4 py-2 rounded-lg bg-indigo-300 text-white cursor-pointer">Logged in as <%= current_user.email %></span>
+          <span class="px-4 py-2 rounded-lg bg-indigo-600 text-white cursor-pointer">Logged in as <%= current_user.email %></span>
         <% end %>
       </div>
       <%= render "layouts/alerts" %>
