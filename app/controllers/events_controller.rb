@@ -1,5 +1,5 @@
 class EventsController < ApplicationController
-  before_action :set_event, only: %i[ show   create ]
+  before_action :set_event, only: %i[ show ]
   def index
     @events = Event.order(:date)
   end
