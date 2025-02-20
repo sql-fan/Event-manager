@@ -2,9 +2,9 @@
   <ul class="flex items-center justify-between">
     <% if user_signed_in? %>
       <div class="flex gap-2">
-        <li class="bg-sky-300 px-4 py-2 rounded-lg hover:scale-105 cursor-pointer"><%= link_to "All events", root_path %></li>
-        <li class="bg-sky-300 px-4 py-2 rounded-lg hover:scale-105 cursor-pointer"><%= link_to "Create event", new_event_path %></li>
-        <li class="bg-sky-300 px-4 py-2 rounded-lg hover:scale-105 cursor-pointer"><%= link_to "My events", user_path(current_user) %></li>
+        <li class="bg-green-600 px-4 py-2 rounded-lg hover:scale-105 cursor-pointer text-white"><%= link_to "All events", root_path %></li>
+        <li class="bg-green-600 px-4 py-2 rounded-lg hover:scale-105 cursor-pointer text-white"><%= link_to "Create event", new_event_path %></li>
+        <li class="bg-green-600 px-4 py-2 rounded-lg hover:scale-105 cursor-pointer text-white"><%= link_to "My events", user_path(current_user) %></li>
       </div>
     <% end %>
     <div class="flex gap-2">

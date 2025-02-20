@@ -17,12 +17,12 @@
     <%= stylesheet_link_tag :app, "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
-  <body class="bg-slate-300 flex flex-col">
+  <body class="bg-slate-700 flex flex-col">
     <%= render "layouts/navbar" %>
     <main class="flex flex-col items-center justify-center pt-4">
       <div class="fixed top-20 right-0">
         <% if user_signed_in? %>
-          <span class="px-4 py-2 rounded-lg bg-indigo-600 text-white cursor-pointer">Logged in as <%= current_user.email %></span>
+          <span class="hidden md:block fixed top-0 right-20 rounded-lg text-white cursor-pointer">Logged in as <%= current_user.email %></span>
         <% end %>
       </div>
       <%= render "layouts/alerts" %>
