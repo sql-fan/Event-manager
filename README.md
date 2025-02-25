@@ -1,3 +1,3 @@
 # Event manager
 
-This project is part of the odin project curriculum
+Ruby on rails
